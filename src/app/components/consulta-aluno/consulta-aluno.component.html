@@ -1,0 +1,30 @@
+<form [formGroup]="consultaAlunos" class="example-form">
+    <h2>Consulta | Edição de Aluno </h2>
+
+    <form class="my-2 my-lg-0 classe">
+        <input class="form-control mr-sm-2" type="search" placeholder="Procure pelo id:" aria-label="Search">
+        <button class="btn btn-outline-success" style="width: 80px;" type="submit">Search</button>
+    </form>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Nome do Aluno</mat-label>
+      <input matInput placeholder="Ex." value="">
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+        <mat-label>Turma</mat-label>
+        <input matInput placeholder="Ex." value="">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Idade</mat-label>
+        <input matInput placeholder="Ex." value="">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Ano</mat-label>
+        <input matInput placeholder="Ex." value="">
+      </mat-form-field>
+
+      <button mat-flat-button color="primary">Alterar</button>
+  </form>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AlunoComponent } from './components/aluno/aluno.component';
 
 @Component({
   selector: 'app-root',

@@ -1,0 +1,16 @@
+:host {
+  display: block;
+}
+
+.form-cadastro {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto; /* Adicionado para centralizar horizontalmente */
+  text-align: center;
+}
+
+h2 {
+  margin-top: 20px;
+}

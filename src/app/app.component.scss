@@ -1,0 +1,15 @@
+// .header {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     &__texto {
+//         flex-direction: row;
+//         justify-items: right;
+//     }
+// }
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
