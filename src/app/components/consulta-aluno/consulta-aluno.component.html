@@ -1,30 +1,41 @@
 <form [formGroup]="consultaAlunos" class="example-form">
-    <h2>Consulta | Edição de Aluno </h2>
+  <h2>Consulta | Edição de Aluno </h2>
 
-    <form class="my-2 my-lg-0 classe">
-        <input class="form-control mr-sm-2" type="search" placeholder="Procure pelo id:" aria-label="Search">
-        <button class="btn btn-outline-success" style="width: 80px;" type="submit">Search</button>
-    </form>
-
+  <!-- <form class="my-2 my-lg-0 classe">
+      <input formControlName="id" class="form-control mr-sm-2" type="search" placeholder="Procure pelo id:" aria-label="Search">
+      <button class="btn btn-outline-success" style="width: 80px;" (click)="buscarAluno()">Search</button>
+  </form> -->
+  <div class="filtro">
     <mat-form-field class="example-full-width">
-      <mat-label>Nome do Aluno</mat-label>
-      <input matInput placeholder="Ex." value="">
+      <mat-label>Pesquise pelo id</mat-label>
+      <input formControlName="id" matInput placeholder="Ex. 1">
     </mat-form-field>
-  
+
+    <button mat-icon-button color="primary" aria-label="Example icon button with a home icon" (click)="buscarAluno()">
+      <mat-icon>search</mat-icon>
+    </button>
+  </div>
+
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Nome do Aluno</mat-label>
+    <input matInput placeholder="Ex." formControlName="name">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+      <mat-label>Turma</mat-label>
+      <input matInput placeholder="Ex." formControlName="grade">
+    </mat-form-field>
+
     <mat-form-field class="example-full-width">
-        <mat-label>Turma</mat-label>
-        <input matInput placeholder="Ex." value="">
-      </mat-form-field>
+      <mat-label>Idade</mat-label>
+      <input matInput placeholder="Ex." formControlName="age">
+    </mat-form-field>
 
-      <mat-form-field class="example-full-width">
-        <mat-label>Idade</mat-label>
-        <input matInput placeholder="Ex." value="">
-      </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Id</mat-label>
+      <input matInput placeholder="Ex." formControlName="id">
+    </mat-form-field>
 
-      <mat-form-field class="example-full-width">
-        <mat-label>Ano</mat-label>
-        <input matInput placeholder="Ex." value="">
-      </mat-form-field>
-
-      <button mat-flat-button color="primary">Alterar</button>
-  </form>
+    <button (click)="atualizarAluno()" mat-flat-button color="primary">Alterar</button>
+</form>

@@ -1,32 +1,29 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<table class="table" mat-table [dataSource]="classrooms">
 
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
-  
-    <!-- Position Column -->
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef> ID </th>
-      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-    </ng-container>
-  
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-    </ng-container>
-  
-    <!-- Weight Column -->
-    <ng-container matColumnDef="teacher">
-      <th mat-header-cell *matHeaderCellDef> Teacher </th>
-      <td mat-cell *matCellDef="let element"> {{element.teacher}} </td>
-    </ng-container>
-  
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="studentes">
-      <th mat-header-cell *matHeaderCellDef> Students </th>
-      <td mat-cell *matCellDef="let element"> {{element.studentes}} </td>
-    </ng-container>
-  
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+  <!-- ID Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let classroom"> {{classroom.id}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let classroom"> {{classroom.name}} </td>
+  </ng-container>
+
+  <!-- Teacher Column -->
+  <ng-container matColumnDef="teacher">
+    <th mat-header-cell *matHeaderCellDef> Teacher </th>
+    <td mat-cell *matCellDef="let classroom"> {{classroom.teacher.name}} </td>
+  </ng-container>
+
+  <!-- Students Column -->
+  <ng-container matColumnDef="students">
+    <th mat-header-cell *matHeaderCellDef> Students </th>
+    <td mat-cell *matCellDef="let classroom"> {{ getStudentsList(classroom) }} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { EscolaServiceService } from '../escolaService.service';
 
 @Component({
   selector: 'app-aluno',
@@ -20,7 +21,7 @@ export class AlunoComponent {
 
   studentForm: FormGroup;
 
-  constructor() {
+  constructor(private escolaService: EscolaServiceService) {
     this.studentForm = new FormGroup({
       name: new FormControl('', Validators.required),
       age: new FormControl('', Validators.required),
@@ -29,14 +30,32 @@ export class AlunoComponent {
     });
   }
 
+
   onSubmit() {
     if (this.studentForm.valid) {
-      // Aqui você pode acessar os valores do formulário usando this.studentForm.value
+      this.adicionarAluno(this.studentForm.value);
       console.log(this.studentForm.value);
       // E, se necessário, enviar os dados para o servidor
     } else {
       // Se o formulário não for válido, faça alguma coisa, como exibir mensagens de erro
     }
+  }
+
+  private adicionarAluno(novoAluno: any) {
+    const grade = this.studentForm.get('grade')?.value;
+    if(grade) {
+      this.escolaService.addStudents(grade, novoAluno)
+      .subscribe(
+        (data) => {
+          console.log('Aluno adicionado com sucesso:', data);
+          // Realize qualquer outra ação necessária após a adição do aluno
+        },
+        (error) => {
+          console.error('Erro ao adicionar aluno:', error);
+          // Lidar com o erro adequadamente
+        }
+        );
+      }
   }
 
 }
